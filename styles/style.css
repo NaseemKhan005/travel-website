@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+*,
+html,
+body {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+.container {
+	max-width: 1150px;
+	width: 100%;
+	padding: 0 10px;
+	margin: auto;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+li {
+	list-style: none;
+}
+
+/*----------- header starts -----------*/
+
+.navbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 0;
+}
+
+.logo {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: 500;
+}
+
+.logo img {
+	width: 35px;
+}
+
+.navlinks {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	text-transform: capitalize;
+	margin-left: 20px;
+	transition: all 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.navlinks li a {
+	position: relative;
+}
+
+.navlinks li a::before {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 50px;
+	height: 5px;
+	border-radius: 50px;
+	background-color: #000;
+	color: black;
+	transform: translateX(-50%);
+	transition: all 0.5s;
+}
+
+.navlinks li a:hover::before {
+	width: 100%;
+}
+
+.nav-buttons,
+.small-nav-buttons {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+:is(.nav-buttons, .small-nav-buttons) a {
+	text-transform: capitalize;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 13px 25px;
+	width: 115px;
+	text-align: center;
+	border-radius: 50px;
+}
+
+:is(.nav-buttons, .small-nav-buttons) a:nth-child(2) {
+	background-color: #5d50c6;
+	color: #fff;
+}
+
+:is(.nav-buttons, .small-nav-buttons) a:nth-child(2):hover {
+	background-color: #493ea0;
+}
+
+:is(.nav-buttons, .small-nav-buttons) a:nth-child(1) {
+	background-color: #0000000e;
+	color: black;
+}
+
+:is(.nav-buttons, .small-nav-buttons) a:nth-child(1):hover {
+	background-color: #00000025;
+}
+
+/*----------- header ends -----------*/
+
+#close-icon,
+#menu-icon {
+	display: none;
+}
+.small-nav-buttons {
+	display: none;
+}
+
+/*----------- media query for responsive design -----------*/
+
+@media only screen and (max-width: 900px) {
+	#close-icon,
+	#menu-icon {
+		display: block;
+		font-size: 25px;
+		cursor: pointer;
+		background-color: #0000000e;
+		padding: 3px 9px;
+		border-radius: 50px;
+	}
+
+	.small-nav-buttons {
+		display: flex;
+		margin-top: 50px;
+		gap: 5px;
+		flex-direction: column;
+		width: 100%;
+	}
+	.small-nav-buttons a {
+		width: 100%;
+	}
+
+	.nav-buttons {
+		display: none;
+	}
+
+	:is(#close-icon, #menu-icon):hover {
+		background-color: #00000025;
+	}
+
+	.navlinks {
+		position: fixed;
+		top: 0;
+		right: -100%;
+		background-color: #fff;
+		box-shadow: 0 0 40px rgba(0, 0, 0, 0.07);
+		padding: 120px 30px;
+		width: 350px;
+		height: 100vh;
+		flex-direction: column;
+		align-items: start;
+		gap: 25px;
+	}
+
+	.navlinks li {
+		width: 100%;
+	}
+
+	#close-icon {
+		position: absolute;
+		top: 30px;
+		left: 25px;
+	}
+
+	.navlinks li a {
+		border-bottom: 1px solid black;
+		display: block;
+		width: 100%;
+		padding-bottom: 8px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.navlinks {
+		width: 100%;
+	}
+}
